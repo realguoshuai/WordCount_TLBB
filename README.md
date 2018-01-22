@@ -7,4 +7,5 @@
    * 引入 IKAnalyzer的maven依赖 
 ## 暂未解决,人名提取  按照value值进行降序
   *人名提取使用awk命令,去除小与两个字,大于5个字的文字(已完成排序)
-![](https://github.com/realguoshuai/WordCount_TLBB/blob/master/WordCount_tlbb/src/main/resources/Image.png)
+![](https://github.com/realguoshuai/WordCount_TLBB/blob/master/WordCount_tlbb/src/main/resources/ing.png)
+
