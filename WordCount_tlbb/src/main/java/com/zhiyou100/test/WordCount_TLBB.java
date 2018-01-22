@@ -1,4 +1,4 @@
-
+﻿
 package com.zhiyou100.test;
 
 import org.apache.hadoop.conf.Configuration;
@@ -77,6 +77,8 @@ public class WordCount_TLBB {
 	public static void main(String[] args) throws Exception {
 
 		Configuration conf = new Configuration();
+		 conf.set("fs.defaultFS", "hdfs://master:9000");
+		 FileSystem fSystem =FileSystem.get(conf);
 
 		Job job = Job.getInstance(conf, "word count");
 
@@ -101,8 +103,10 @@ public class WordCount_TLBB {
 
 		// 设置计算结果保存的文件夹，一定确保文件夹不存在
 		Path outputDir = new Path("hdfs://master:9000/tlbb3");
+		//如果文件夹存在,就删除
+		fSystem.delete(outputDir, true);
 		FileOutputFormat.setOutputPath(job, outputDir);
-
+		
 		// 提交任务并等待完成，返回值表示任务执行结果
 		boolean flag = job.waitForCompletion(true);
 		System.out.println("执行完了------------------------");
