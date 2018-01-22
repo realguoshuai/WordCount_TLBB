@@ -45,7 +45,8 @@ public class WordCount_TLBB2 {
     public static void main(String[] args) throws Exception {  
           
         Configuration conf = new Configuration();  
-          
+        conf.set("fs.defaultFS", "hdfs://master:9000");
+	FileSystem fSystem =FileSystem.get(conf);
 
 		Job job = Job.getInstance(conf, "word count");  
         job.setJarByClass(WordCount_TLBB2.class);  
@@ -61,6 +62,8 @@ public class WordCount_TLBB2 {
 
      			// 设置计算结果保存的文件夹，一定确保文件夹不存在
      			Path outputDir = new Path("hdfs://master:9000/tlbb4");
+			//如果文件夹存在,就删除
+			fSystem.delete(outputDir, true);
      			FileOutputFormat.setOutputPath(job, outputDir);
           System.out.println("----------");
         System.exit(job.waitForCompletion(true) ? 0 : 1);  
