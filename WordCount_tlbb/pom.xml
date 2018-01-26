@@ -5,6 +5,7 @@
 	<artifactId>WordCount_tlbb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
+
 		<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
@@ -17,5 +18,6 @@
 			<artifactId>ikanalyzer</artifactId>
 			<version>2012_u6</version>
 		</dependency>
+
 	</dependencies>
 </project>
